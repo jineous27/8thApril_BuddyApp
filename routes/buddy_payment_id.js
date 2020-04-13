@@ -12,8 +12,18 @@ router.get ('/', (req, res) => {
 
 //API for posting Buddy Payment ID
 router.post ('/', (req, res) => {
+
+    const newbuddyPaymentId = {
+        buddyPaymentId: req.body.buddyPaymentId,
+        orderId: req.body.orderId,
+        deliveryBuddyId: req.body.deliveryBuddyId,
+        paymentComment: req.body.paymentComment
+
+    };
+
     res.json ({
-        msg: "Successfully POST buddy payment ID"
+        msg: "Successfully POST buddy payment ID",
+        buddyPaymentInfo: newbuddyPaymentId
     });
 });
 
@@ -30,6 +40,5 @@ router.delete ('/', (req, res) => {
         msg: "Successfully DELETE buddy payment ID"
     });
 });
-
 
 module.exports = router;

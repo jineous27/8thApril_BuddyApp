@@ -15,8 +15,18 @@ router.get ('/', (req, res) => {
 
 //API for posting Delivery order status ID
 router.post ('/', (req, res) => {
+
+    const newDeliveryOrderStatusId ={
+        deliveryStatusId: req.body.deliveryStatusId,
+        buddyTaskId: req.body.buddyTaskId,
+        deliveryOrderStatus: req.body.deliveryOrderStatus,
+        timeStamp: req.body.timeStamp
+
+    };
+
     res.json({
-        msg: "Registered new Delivery order status ID"
+        msg: "Registered new Delivery order status ID",
+        orderStatusInfo: newDeliveryOrderStatusId
     });
 });
 

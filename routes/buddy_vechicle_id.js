@@ -12,8 +12,19 @@ router.get ('/', (req, res) => {
 
 //Develop an API for register the certain Buddy Vehicle's ID
 router.post ('/', (req, res) => {
+    
+    const newBuddyVehicleId = {
+        buddyVehicleId: req.body.buddyVehicleId,
+        buddyId: req.body.buddyId,
+        vehicleType: req.body.vehicleType,
+        vehicleModel: req.body.vehicleModel,
+        vehicleColor: req.body.vehicleColor,
+        vehicleInsurance: req.body.vehicleInsurance
+    };
+
     res.json ({
-        msg: "Registered new buddy vehicle's ID"
+        msg: "Registered new buddy vehicle's ID",
+        buddyVehicleId: newBuddyVehicleId
     });
 });
 
