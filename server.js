@@ -1,5 +1,6 @@
 const express = require ('express');
 const app = express();
+const morgan = require ('morgan');
 
 
 const BuddyIdRoutes = require('./routes/buddy_id');
@@ -8,6 +9,7 @@ const BuddyTaskIDRoutes = require('./routes/buddy_task_id');
 const DeliveryOrderStatus = require('./routes/deliveryorder_status_id')
 const BuddyPaymentRoutes = require ('./routes/buddy_payment_id');
 
+app.use(morgan('dev')); //dev 버전의 형식으로 log를 찍겠다. 
 
 app.use('/api/buddyid', BuddyIdRoutes);
 app.use('/api/buddyvehicleid', BuddyVehicleIdRoutes);
