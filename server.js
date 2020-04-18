@@ -9,6 +9,7 @@ const BuddyTaskIDRoutes = require('./routes/buddy_task_id');
 const DeliveryOrderStatus = require('./routes/deliveryorder_status_id')
 const BuddyPaymentRoutes = require ('./routes/buddy_payment_id');
 
+require("./database");
 app.use(morgan('dev')); //dev 버전의 형식으로 log를 찍겠다. 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false})) ; 
