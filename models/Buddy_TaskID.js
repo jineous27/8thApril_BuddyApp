@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const buddyTaskIdSchema = mongoose.Schema(
 
     {
-        buddy_task_id: {
-            type: Number,
-            required: true
-        },
+        // buddy_task_id: {
+        //     type: Number,
+        //     required: true
+        // },
         order_id: {
             type: Number,
             required: true
@@ -28,7 +28,6 @@ const buddyTaskIdSchema = mongoose.Schema(
         },
         users_signature: {
             type: String, 
-            required: true
         },
         user_delivery_report: {
             type: Boolean,

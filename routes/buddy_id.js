@@ -20,6 +20,7 @@ router.get ('/', (req, res) => {
 router.post ('/', (req, res) => {
 
     const newBuddyId = new buddyIdModel({
+        // delivery_buddy_id: req. body.delivery_buddy_id,
         buddy_first_name: req.body.buddy_first_name,
         buddy_last_name: req.body.buddy_last_name,
         buddy_account_email: req.body.buddy_account_email,
