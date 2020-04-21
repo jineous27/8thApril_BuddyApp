@@ -30,8 +30,8 @@ const buddyVehicleIdSchema = mongoose.Schema(
             defalut: false
         },
         insurance_documents: {
-            type: String,
-            required: true
+            type: String, 
+            required: true  //attached file url
         }
     },
     {

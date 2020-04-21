@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const buddyIdModel = require("../models/Buddy_ID")
 
 //CRUD Create - Retrive - Update - Delete //
 
@@ -18,27 +19,41 @@ router.get ('/', (req, res) => {
 // API for posting Buddy IDs
 router.post ('/', (req, res) => {
 
-    const newBuddyId = {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        accountEmail: req.body.accountEmail,
-        accountPassword: req.body.accountPassword,
-        buddyDateofbirth: req.body.buddyDateofbirth,
-        termsconditions: req.body.termsconditions,
-        buddyProfileImage: req.body.buddyProfileImage,
-        buddyWorkType: req.body.buddyWorkType,
-        buddyABN: req.body.buddyABN,
-        registerGST: req.body.registerGST,
-        buddyContact: req.body.buddyContact
-
-
-    };
-
-    res.json({
-        msg: "Registered new buddy ID",
-        buddyInfo: newBuddyId
+    const newBuddyId = new buddyIdModel({
+        buddy_first_name: req.body.buddy_first_name,
+        buddy_last_name: req.body.buddy_last_name,
+        buddy_account_email: req.body.buddy_account_email,
+        buddy_account_password: req.body.buddy_account_password,
+        buddy_dateOf_birth: req.body.buddy_dateOf_birth,
+        agreed_terms_conditions: req.body.agreed_terms_conditions,
+        buddy_profile_image: req.body.buddy_profile_image,
+        buddy_work_type: req.body.buddy_work_type,
+        buddy_abn: req.body.buddy_abn,
+        buddy_gst_registraion: req.body.buddy_gst_registraion,
+        buddy_contact_number: req.body.buddy_contact_number,
+        buddy_emergency_name: req.body.buddy_emergency_name,
+        buddy_emergency_contact: req.body.buddy_emergency_contact
 
     });
+
+    newBuddyId
+        .save()
+        .then(result => {
+            res.status(201).json({
+                message: 'Handling POST requests to buddy Id',
+                createBuddyIdInfo: result
+            })
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message
+            });
+        });
+
+    // res.json({
+    //     msg: "Registered new buddy ID",
+    //     buddyInfo: newBuddyId
+    // });
 });
 
 //API for patching API

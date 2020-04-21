@@ -14,11 +14,26 @@ const deliveryOrderStatusSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        time_each_status: {
+        time_to_confirm: {
             type: String,
             required: true
-        }
-        
+        },
+        time_to_pickup: {
+            type: String,
+            required: true
+        },
+        time_to_complete: {
+            type: String,
+            required: true
+        },
+        time_to_incomplete: {
+            type: String,
+            required: true
+        },
+        time_to_cancel: {
+            type: String,
+            required: true
+        },
     },
     {
         timestamps: true
