@@ -19,20 +19,19 @@ const deliveryOrderStatusSchema = mongoose.Schema(
             required: true
         },
         time_to_pickup: {
-            type: String,
+            type: Date,
             required: true
         },
         time_to_complete: {
-            type: String,
+            type: Date,
             required: true
         },
         time_to_incomplete: {
-            type: String,
-            required: true
+            type: Date
         },
         time_to_cancel: {
-            type: String,
-            required: true
+            type: Date
+
         },
     },
     {
